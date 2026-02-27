@@ -1,0 +1,70 @@
+Prog 1 elmelet 02-24 HAZI
+
+vonal1();    ---
+vonal2(10); -----------
+vonal3('=',5); =====
+
+linux yt video 6 7 8 9 meg nezni
+
+-------------------------------
+ciklus1 10x;
+	kiir ##\n;
+enc ciklus1;
+-------------------------------
+for(int i=0; i<10; i++)
+{
+	printf("##\n");
+}
+-------------------------------
+ciklus1 10x;
+	ciklus2 2x;
+		kiir #;
+	enx ciklus2;
+	sortores
+end cuklus1
+-----------------------------------
+dia 3
+'A' ASCII kodja: 65
+char c='A'
+'A': 128 64 32 16 8 4 2 1
+       0  1  0  0 0 0 0 1
+'a':
+0-31 - nem nyomtathato karakterek
+
+float-4 bit
+double-8 bit
+------------------------------------
+void hello(...)
+{
+	printf(...);
+}
+---------------------------------
+string
+valtozok
+operandusok
+-------------------------------------
+LITERAL=KONSTANS 
+Mi az: A literál az olyan programozási eszköz, amelynek segítségével fix, explicit értékek építhetők be a program szövegébe.
+A literáloknak 2 komponensük van: érték és típus. A liteál az mindig önmagát definiálja. A literál felírási módja meghatározza, mint a típust, mint pedig az értéket.
+-------------------------
+tipuskonverzio
+int		double
+2	->	2.0
+6	<-	6.52	
+7	<-	7.0
+---------------------------------------
+aritmetikai operatorok
+
+
+
+
+
+
+
+
+
+
+
+
+
+
