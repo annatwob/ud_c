@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<string.h>
 
+#define VERSION "1.0.0" // Stringként kezelve a legegyszerűbb
+
 typedef struct 
 {
     char *name;
@@ -75,6 +77,18 @@ Template templates[] =
     {"cpp", "main.cpp", cpp_code}
 };
 
+void Help()
+{
+    printf("alap v%s\n\n", VERSION); // Verzió kiírása a fejlécben
+    printf("Usage: alap <template_id> [option]\n\n");
+    printf("Available options:\n");
+    printf(" -h, --help      shows this help info\n");
+    printf(" -v, --version   version info\n");
+    printf(" --stdout        don't create source file, prints result to stdout\n\n");
+    
+    printf("Available languages: c    bash    py      cs      cpp\n");
+}
+
 void create_file(Template t) 
 {
     FILE *f = fopen(t.filename, "w");
@@ -97,9 +111,20 @@ int main(int argc, char *argv[])
 {
     if(argc < 2)
     {
-        printf("Hiba: Nem adtál meg nyelvet!\n");
-        printf("Használat: %s <c|bash|py|cs|cpp>\n", argv[0]);
-        return 1;
+        Help();
+        return 0;
+    }
+
+    if(strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0)
+    {
+        Help();
+        return 0;
+    }
+
+    if(strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0)
+    {
+        printf("alap v%s\n", VERSION); // A %s helyére behelyettesíti a VERSION tartalmát
+        return 0;
     }
 
     int template_count = sizeof(templates) / sizeof(templates[0]);
@@ -117,13 +142,8 @@ int main(int argc, char *argv[])
 
     if(!found)
     {
-        printf("Hiba: A(z) '%s' nyelvhez nincs sablon. \n", argv[1]);
-        printf("Elérhető nyelvek: ");
-        for(int i=0; i<template_count; i++)
-        {
-            printf(" %s", templates[i].name);
-        }
-        printf("\n");
+        printf("Hiba: A(z) '%s' nyelvhez nincs sablon.\n", argv[1]);
+        Help();
         return 1;
     }
 
